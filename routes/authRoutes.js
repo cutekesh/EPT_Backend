@@ -5,7 +5,7 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const admin = require("../utils/firebase"); // adjust path as needed
 // Secret key for JWT
-const JWT_SECRET = process.env.JWT_SECRET;// move to env in production
+const JWT_SECRET = process.env.JWT_SECRET; // move to env in production
 const crypto = require("crypto");
 const sendEmail = require("../utils/sendEmail");
 
@@ -23,7 +23,6 @@ router.post("/signup", async (req, res) => {
     const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1h" });
     res.status(201).json({ user: { id: user._id, name, email }, token });
     console.log(user);
-    
   } catch (err) {
     console.error("Signup error:", err);
     res.status(500).json({ message: "Error signing up" });

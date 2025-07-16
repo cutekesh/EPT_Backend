@@ -23,7 +23,10 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://ept-rebranding-6qd1.vercel.app/",
+    origin: [
+      "https://ept-rebranding-6qd1.vercel.app/",
+      "http://localhost:5173",
+    ], // Adjust to your frontend URL
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
