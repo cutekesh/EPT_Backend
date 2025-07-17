@@ -30,5 +30,14 @@ module.exports = async function sendEmail({ to, subject, html }) {
     console.log("✅ Email sent to", to);
   } catch (err) {
     console.error("❌ Failed to send email:", err);
+    throw err; // <-- propagate error to route handler
   }
 };
+
+// const sendEmail = require("./sendEmail");
+
+// sendEmail({
+//   to: "cutekesh.21@gmail.com",
+//   subject: "Test Email from Node App",
+//   html: "<p>This is a test email sent via Gmail SMTP.</p>",
+// });
