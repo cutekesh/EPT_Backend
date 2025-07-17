@@ -2,6 +2,13 @@
 const crypto = require("crypto"); // built-in
 const nodemailer = require("nodemailer");
 require("dotenv").config();
+
+console.log("Loaded ENV:", {
+  SMTP_HOST: process.env.SMTP_HOST,
+  SMTP_PORT: process.env.SMTP_PORT,
+  SMTP_USER: process.env.SMTP_USER,
+  SMTP_PASS: process.env.SMTP_PASS ? "✅ Set" : "❌ Not Set",
+});
 // Create reusable transporter
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
